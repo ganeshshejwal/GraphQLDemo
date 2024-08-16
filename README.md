@@ -1,0 +1,2 @@
+# GraphQLDemo
+Demo graphql application
