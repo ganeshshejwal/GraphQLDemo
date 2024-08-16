@@ -1,0 +1,48 @@
+type Customer {
+    id: ID!
+    firstName: String!
+    lastName: String!
+    email: String!
+    mobileNumber: String!
+    products: [Product]
+}
+
+type Product {
+    productId: ID!
+    productName: String!
+    productDescription: String!
+    productPrice: Float!
+    productQuantity: Int!
+    customerId : ID!
+}   
+
+input CustomerInput {
+    firstName: String!
+    lastName: String!
+    email: String!
+    mobileNumber: String!
+}
+
+input ProductInput {
+    productName: String!
+    productDescription: String!
+    productPrice: Float!
+    productQuantity: Int!
+    customerId : ID!
+}
+
+type Query {
+    getAllCustomers: [Customer]
+    getCustomer(id: ID!): Customer
+
+    getAllProducts: [Product]
+    getProduct(productId: ID!): Product
+}
+
+type Mutation {
+    createCustomer(customerInput: CustomerInput): Customer
+    deleteCustomer(id: ID!): Boolean
+
+    createProduct(productInput: ProductInput): Product
+    deleteProduct(productId: ID!): Boolean
+}
